@@ -18,11 +18,12 @@
 <div class="row header-row">
     <div class="overlay"></div>
     <div class="inner-container">
+        <i class="fa fa-bars fa-2x menu-button"></i>
         <ul class="main-menu">
-            <li><a href=""><i class="fa fa-home"></i>Home</a></li>
-            <li><a href=""><i class="fa fa-user"></i>Sobre</a></li>
-            <li><a href=""><i class="fa fa-camera"></i>Portifolio</a></li>
-            <li><a href=""><i class="fa fa-envelope"></i>Contato</a></li>
+            <li><a id="home-button"><i class="fa fa-home"></i>Home</a></li>
+            <li><a id="about-button"><i class="fa fa-user"></i>Sobre</a></li>
+            <li><a id="portifolio-button"><i class="fa fa-camera"></i>Portifolio</a></li>
+            <li><a id="contact-button"><i class="fa fa-envelope"></i>Contato</a></li>
         </ul>
         <img src="full-logo.png" class="logo"/>
         <ul class="social-menu">
@@ -215,6 +216,9 @@
         </div>
 </div>
 
+<div style="width: 100%; text-align: center; color: #ccc; font-size: 12px;padding-bottom: 10px;">
+    <a href="https://www.fiverr.com/integrastudio" target="_blank">Design por Íntegra Studio</a>
+</div>
 
 
 
@@ -222,7 +226,34 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
 
 <script type="text/javascript">
+
     $(document).ready(function(){
+
+        $(".menu-button").click(function(){
+            $(".main-menu").toggle('fast');
+        });
+
+        $("#home-button").click(function() {
+            $('html, body').animate({
+                scrollTop: $(".header-row").offset().top
+            }, 1000);
+        });
+        $("#about-button").click(function() {
+            $('html, body').animate({
+                scrollTop: $(".about-row").offset().top
+            }, 1000);
+        });
+        $("#portifolio-button").click(function() {
+            $('html, body').animate({
+                scrollTop: $(".portifolio-row").offset().top
+            }, 1000);
+        });
+        $("#contact-button").click(function() {
+            $('html, body').animate({
+                scrollTop: $(".contact-row").offset().top
+            }, 1000);
+        });
+
         $('.portifolio-slider').slick({
             slidesToShow: 1,
             slidesToScroll: 1,
@@ -240,8 +271,27 @@
             dots: true,
             centerMode: true,
             adaptiveHeight: true,
-            focusOnSelect: true
+            focusOnSelect: true,
+            responsive: [
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+
+            ]
         });
+
+
 		
     });
     
